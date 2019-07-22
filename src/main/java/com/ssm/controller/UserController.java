@@ -1,5 +1,6 @@
 package com.ssm.controller;
 import com.ssm.model.User;
+import com.ssm.service.UserInfo;
 import com.ssm.service.UserService;
 import com.ssm.vo.RespVo;
 import com.ssm.vo.UserVo;
@@ -15,8 +16,22 @@ import java.util.List;
 public class UserController {
     @Autowired
     private final UserService userService;
-    public UserController(UserService userService) {
+
+    @Autowired
+    private final UserInfo userInfo;
+
+    public UserController(UserService userService, UserInfo userInfo) {
         this.userService = userService;
+        this.userInfo = userInfo;
+    }
+
+    @RequestMapping(value="/find",method= RequestMethod.GET)
+    @CrossOrigin
+    @ResponseBody
+    public RespVo find(int id){
+        String string=userInfo.selectAll(id);
+        System.err.print("1111111111111111");
+        return  RespVo.success(string);
     }
 
     @RequestMapping(value="/list",method= RequestMethod.GET)
@@ -90,4 +105,5 @@ public class UserController {
 //        model.addAttribute("pageInfo", page);
 //        return "allUser";
 //    }
+
 }
