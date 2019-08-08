@@ -5,12 +5,10 @@ import java.io.Serializable;
 public class User implements Serializable{
     private static final long serialVersionUID = 1L;
 
-    //主键
     private int id;
-    //用户名
     private String username;
-    //年龄
     private String age;
+    private String mail;
 
     public User() {
         super();
@@ -45,5 +43,13 @@ public class User implements Serializable{
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

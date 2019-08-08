@@ -4,6 +4,7 @@ public class UserVo {
 	private String username;
 	private String age;
 	private int id;
+	private String mail;
 	
 	public String getUsername() {
 		return username;
@@ -23,5 +24,10 @@ public class UserVo {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 }
